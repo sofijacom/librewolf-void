@@ -1,8 +1,8 @@
 # Template file for 'librewolf'
 pkgname=librewolf
-version=147.0.1
+version=148.0.2
 revision=1
-_rev=3
+_rev=2
 wrksrc=${pkgname}-${version}-${_rev}
 build_helper="rust"
 short_desc="LibreWolf web browser"
@@ -10,7 +10,7 @@ maintainer="index <index@mailbox.org>"
 license="GPL-3.0-only AND LGPL-2.1-only AND LGPL-3.0-only AND MPL-2.0"
 homepage="https://librewolf.net/"
 distfiles="https://codeberg.org/api/packages/librewolf/generic/librewolf-source/${version}-${_rev}/${pkgname}-${version}-${_rev}.source.tar.gz"
-checksum=ec53e549d9165772bec73d127564098055c414bdab05261e282bfb7d9ba1c1f5
+checksum=659e320b09ab5a71a05c3183e0f0592ea79d707f377fb8c301233e299183876c
 
 lib32disabled=yes
 
@@ -20,7 +20,7 @@ hostmakedepends="unzip zip pkg-config perl python3 yasm rust
  tar xz $(vopt_if pgo 'xvfb-run dbus mesa-dri vulkan-loader pciutils')
  $(vopt_if wasi wasi-sdk)"
 makedepends="nss-devel libjpeg-turbo-devel gtk+3-devel
- pixman-devel libevent-devel libnotify-devel libvpx-devel libwebp-devel
+ pixman-devel libevent-devel libnotify-devel libwebp-devel
  libXrender-devel libXcomposite-devel libSM-devel libXt-devel rust-std
  libXdamage-devel freetype-devel $(vopt_if wasi wasi-sdk)
  $(vopt_if alsa alsa-lib-devel) $(vopt_if dbus dbus-glib-devel)
@@ -167,7 +167,7 @@ do_build() {
 	ac_add_options --with-system-ffi
 	ac_add_options --with-system-jpeg
 	ac_add_options --with-system-libevent
-	ac_add_options --with-system-libvpx
+	# ac_add_options --with-system-libvpx
 	ac_add_options --with-system-nspr
 	ac_add_options --with-system-nss
 	ac_add_options --with-system-webp
