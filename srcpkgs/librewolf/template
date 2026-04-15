@@ -6,7 +6,7 @@ _rev=1
 wrksrc=${pkgname}-${version}-${_rev}
 build_helper="rust"
 short_desc="LibreWolf web browser"
-maintainer="index <index@mailbox.org>"
+maintainer="sofiya <sofiya@v.org>"
 license="GPL-3.0-only AND LGPL-2.1-only AND LGPL-3.0-only AND MPL-2.0"
 homepage="https://librewolf.net/"
 distfiles="https://codeberg.org/api/packages/librewolf/generic/librewolf-source/${version}-${_rev}/${pkgname}-${version}-${_rev}.source.tar.gz"
@@ -198,6 +198,7 @@ do_build() {
 	ac_add_options --with-l10n-base=$PWD/lw/l10n
 
 	export MOZ_REQUIRE_SIGNING=
+	export MOZILLA_OFFICIAL=1
 
 	mk_add_options MOZ_CRASHREPORTER=0
 	mk_add_options MOZ_DATA_REPORTING=0
